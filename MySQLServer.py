@@ -1,3 +1,4 @@
+import mysql.connector
 from mysql.connector import connect, Error
 from getpass import getpass
 
@@ -17,7 +18,7 @@ try:
 
 except Error as e:
     print(e)
-    
+
 connection.close()
 
 
