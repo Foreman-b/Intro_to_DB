@@ -4,21 +4,21 @@ from getpass import getpass
 
 
 try:
-    with connect(
+    mydb = mysql.connector.connect(
         host = "localhost",
         user = input("Enter username: "),
-        password = getpass("Enter password: "),
-        ) as connection:
-        create_database = "CREATE DATABASE IF NOT EXISTS alx_book_store;"
+        password = getpass("Enter password: ")
+    )
+    mycursor = mydb.cursor()
 
-        with connection.cursor() as cursor:
-            cursor.execute(create_database)
-            connection.commit()
-            print("Database 'alx_book_store' created successfully!")
+    mycursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store;")
+    mydb.commit()
+    print("Database 'alx_book_store' created successfully!")
 
 except Error as e:
     print(e)
 
-connection.close()
+mycursor.close()
+mydb.close()
 
 
