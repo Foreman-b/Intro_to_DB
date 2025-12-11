@@ -13,7 +13,7 @@ FROM
 WHERE 
     TABLE_SCHEMA = 'alx_book_store'
 AND 
-    TABLE_NAME = 'books'
+    TABLE_NAME = 'Books'
 ORDER BY 
     ORIGINAL_POSITION;
 
